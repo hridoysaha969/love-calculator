@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/fontawesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="error-box" id="errorBox">
+        <div class="error-msg">
+            <span class="times" id="times"><i class="fas fa-times"></i></span>
+            <span><i class="fas fa-sad-tear"></i></span>
+            <p id="error-text"></p>
+        </div>
+    </div>
+
+
+    <section class="container">
+        <div class="love-form">
+            <div class="heading">
+                <h2>Calculate Your Love</h2>
+            </div>
+
+            <div class="content">
+
+                <span class="heart"><i class="fas fa-heart"></i></span>
+                <span class="heart"><i class="fas fa-heart"></i></span>
+                <span class="heart"><i class="fas fa-heart"></i></span>
+
+                <div class="floating">
+                    <form action="#">
+                        <div class="wrapper">
+                            <div class="input-box">
+                                <input type="text" placeholder="Your Name" id="yourName">
+                            </div>
+                            <div class="plus-box">
+                                <span> + </span>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" placeholder="Partner's Name" id="loveName">
+                            </div>
+                        </div>
+                    </form>
+    
+                    <button id="calcBtn">Calculate</button>
+    
+                    <div class="result">
+                        <input type="text" placeholder="Your Result" id="result">
+                    </div>
+                </div>
+            </div>
+
+            <div class="credit">
+                <p>All credit reserved by <a href="https://codershridoy.com/"> Coder's Hridoy</a></p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
