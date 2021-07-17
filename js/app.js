@@ -1,11 +1,19 @@
+// ====== PRE LOADER =====
+const preLoader = document.getElementById('preLoader')
+function loadFunction() {
+    displayNone(preLoader)
+}
+
+// ====== CALCULATING LOVE ======
 
 const calcBtn = document.getElementById('calcBtn')
-const result = document.getElementById('result')
+const resultValue = document.getElementById('result-value')
+let myConfetti = document.getElementById('my-canvas');
 
 calcBtn.addEventListener('click', () => {
     const yourName = document.getElementById('yourName').value
     const loveName = document.getElementById('loveName').value
-    let loveData = Math.floor(Math.random() * 100)
+    let loveData = Math.floor(Math.random() * 100 + 1)
 
     if(yourName == '') {
         displayBlock(errorBox)
@@ -30,19 +38,25 @@ calcBtn.addEventListener('click', () => {
         displayBlock(errorBox)
         errorText.innerHTML = 'Can not use number as a Name'
     } else {
-        result.value = 'Calculating....'
+        displayBlock(resultBox)
+        resultValue.innerHTML = 'Calculating....'
         setTimeout(() => {
-            result.value = loveData + '%'
-        }, 3000)
-
+            resultValue.innerHTML = loveData + '%'
+            if(loveData > 59) {
+                myConfetti.classList.add('active')
+            }
+        }, 2500)
     }
 
 })
 
+
+// =====   ERROR & RESULT ======
 const times = document.getElementById('times')
+const closed = document.getElementById('close')
 const errorBox = document.getElementById('errorBox')
 const errorText = document.getElementById('error-text')
-
+const resultBox = document.getElementById('result')
 
 function displayBlock(box) {
     box.style.display = 'block'
@@ -54,3 +68,24 @@ function displayNone(box) {
 times.addEventListener('click', () => {
     displayNone(errorBox)
 })
+closed.addEventListener('click', () => {
+    displayNone(resultBox)
+    myConfetti.classList.remove('active')
+})
+
+
+
+var confettiSettings = {
+    target: 'my-canvas',
+    size: 1.8,
+    colors: [
+        [255, 0, 0],
+        [0, 255, 0],
+        [255, 255, 0],
+        [0, 0, 255]
+       ],
+   rotate: true,
+   clock: 50
+   };
+var confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
